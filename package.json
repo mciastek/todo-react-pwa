@@ -15,6 +15,7 @@
     "redux-pouchdb": "^0.1.1"
   },
   "devDependencies": {
+    "lighthouse": "^1.6.0",
     "react-scripts": "0.9.5",
     "sw-precache": "^5.0.0"
   },
@@ -23,6 +24,7 @@
     "start:server": "NODE_ENV=development nodemon server",
     "build": "react-scripts build && sw-precache --config=sw-precache-config.js",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lighthouse": "./node_modules/.bin/lighthouse --output html --output-path ./lighthouse-report.html"
   }
 }
