@@ -1,3 +1,5 @@
+import { persistentReducer } from 'redux-pouchdb';
+
 import {
   ADD_TODO,
   TOGGLE_TODO,
@@ -41,4 +43,4 @@ const todos = (state = [], action) => {
   }
 };
 
-export default todos;
+export default persistentReducer(todos);

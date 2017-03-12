@@ -1,3 +1,5 @@
+import { persistentReducer } from 'redux-pouchdb';
+
 import { SET_VISIBILITY_FILTER } from '../constants';
 
 const visibilityFilter = (state = 'SHOW_ALL', action) => {
@@ -9,4 +11,4 @@ const visibilityFilter = (state = 'SHOW_ALL', action) => {
   }
 };
 
-export default visibilityFilter;
+export default persistentReducer(visibilityFilter);
