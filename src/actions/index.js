@@ -4,12 +4,10 @@ import {
   SET_VISIBILITY_FILTER,
 } from '../constants';
 
-let nextTodoId = 0;
-
-export const addTodo = (text) => {
+export const addTodo = (id, text) => {
   return {
     type: ADD_TODO,
-    id: nextTodoId++,
+    id,
     text
   };
 };

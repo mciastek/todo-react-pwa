@@ -19,13 +19,14 @@ const getTodosByFilter = (todos, filter) => {
 };
 
 const TodoList = ({ todos, onTodoClick }) => {
+  console.log(todos);
   return (
     <section className="main">
       <input className="toggle-all" type="checkbox" />
       <ul className="todo-list">
-        {todos.map((todo) => (
+        {todos.map((todo, index) => (
           <TodoItem
-            key={todo.id}
+            key={index}
             onClick={() => onTodoClick(todo.id)}
             {...todo}
           />

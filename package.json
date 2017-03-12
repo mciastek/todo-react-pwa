@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.15.2",
+    "morgan": "^1.8.1",
+    "nodemon": "^1.11.0",
     "pouchdb": "^6.1.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -15,7 +19,8 @@
     "sw-precache": "^5.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "BROWSER=true react-scripts start",
+    "start:server": "NODE_ENV=development nodemon server",
     "build": "react-scripts build && sw-precache --config=sw-precache-config.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
