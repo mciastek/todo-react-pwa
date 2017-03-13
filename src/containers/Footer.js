@@ -22,9 +22,17 @@ const buttons = [{
   label: 'Completed'
 }];
 
-const Footer = ({ visibilityFilter, filterTodos }) => {
+const getRemainingTodos = (todos) => todos.filter(todo => !todo.completed);
+
+const Footer = ({ visibilityFilter, remainingTodos, filterTodos }) => {
+  const count = remainingTodos.length;
+
   return (
     <footer className="footer">
+      <span className="todo-count">
+        <strong>{count}</strong>
+        <span>{` item${count > 1 ? 's' : ''} left`}</span>
+      </span>
       <ul className="filters">
         {buttons.map(({ filter, label }, index) => (
           <li key={index}>
@@ -40,6 +48,7 @@ const Footer = ({ visibilityFilter, filterTodos }) => {
 };
 
 const mapStateToProps = (state) => ({
+  remainingTodos: getRemainingTodos(state.todos),
   visibilityFilter: state.visibilityFilter
 });
 
