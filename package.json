@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.15.3",
+    "body-parser": "^1.17.1",
     "compression": "^1.6.2",
+    "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "morgan": "^1.8.1",
     "nodemon": "^1.11.0",
@@ -12,7 +15,8 @@
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
-    "redux-pouchdb": "^0.1.1"
+    "redux-pouchdb": "^0.1.1",
+    "web-push": "^3.2.2"
   },
   "devDependencies": {
     "lighthouse": "^1.6.0",
@@ -20,7 +24,7 @@
     "sw-precache": "^5.0.0"
   },
   "scripts": {
-    "start": "BROWSER=true react-scripts start",
+    "start": "react-scripts start",
     "start:server": "NODE_ENV=development nodemon server",
     "build": "react-scripts build && sw-precache --config=sw-precache-config.js",
     "test": "react-scripts test --env=jsdom",

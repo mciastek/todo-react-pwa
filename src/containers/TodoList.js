@@ -19,7 +19,6 @@ const getTodosByFilter = (todos, filter) => {
 };
 
 const TodoList = ({ todos, onTodoClick }) => {
-  console.log(todos);
   return (
     <section className="main">
       <input className="toggle-all" type="checkbox" />
