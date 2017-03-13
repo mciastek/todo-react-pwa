@@ -24,10 +24,12 @@ app.use(compression());
 // Setup logger
 app.use(morgan('combined'));
 
+app.use(bodyParser.json());
+
 // Serve static files
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
-app.post('/notification', bodyParser.json(), function(req, res) {
+app.post('/notification', function(req, res) {
   const subscription = req.param('subscription');
   const message = req.param('message');
 

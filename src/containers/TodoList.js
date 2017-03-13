@@ -5,6 +5,8 @@ import { toggleTodo } from '../actions';
 
 import TodoItem from '../components/TodoItem';
 
+import { sendNotification } from '../utils/service-worker';
+
 const getTodosByFilter = (todos, filter) => {
   switch (filter) {
     case 'SHOW_ALL':
@@ -18,6 +20,19 @@ const getTodosByFilter = (todos, filter) => {
   }
 };
 
+const makeHandleClick = (todo, onTodoClick) => {
+  return () => {
+    onTodoClick(todo.id);
+
+    if (!todo.completed) {
+      sendNotification({
+        title: `You have completed todo with id ${todo.id}!`,
+        text: todo.text
+      });
+    }
+  };
+};
+
 const TodoList = ({ todos, onTodoClick }) => {
   return (
     <section className="main">
@@ -26,7 +41,7 @@ const TodoList = ({ todos, onTodoClick }) => {
         {todos.map((todo, index) => (
           <TodoItem
             key={index}
-            onClick={() => onTodoClick(todo.id)}
+            onClick={makeHandleClick(todo, onTodoClick)}
             {...todo}
           />
         ))}
