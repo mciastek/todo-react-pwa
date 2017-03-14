@@ -18,6 +18,17 @@ webpush.setVapidDetails(
   process.env.VAPID_PRIVATE_KEY
 );
 
+// Force redirect to https
+if (process.env.FORCE_HTTPS) {
+  app.use(function(req, res, next) {
+    if (req.get('X-Forwarded-Proto') !== 'https') {
+      return res.redirect(['https://', req.get('Host'), req.url].join(''));
+    }
+
+    return next();
+  });
+}
+
 // Support Gzip
 app.use(compression());
 
