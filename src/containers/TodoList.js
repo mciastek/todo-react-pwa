@@ -20,8 +20,8 @@ const getTodosByFilter = (todos, filter) => {
   }
 };
 
-const makeHandleClick = (todo, onTodoClick) => {
-  return () => {
+const TodoList = ({ todos, onTodoClick }) => {
+  const handleItemClick = (todo) => {
     onTodoClick(todo.id);
 
     if (!todo.completed) {
@@ -31,9 +31,7 @@ const makeHandleClick = (todo, onTodoClick) => {
       });
     }
   };
-};
 
-const TodoList = ({ todos, onTodoClick }) => {
   return (
     <section className="main">
       <input className="toggle-all" type="checkbox" />
@@ -41,7 +39,7 @@ const TodoList = ({ todos, onTodoClick }) => {
         {todos.map((todo, index) => (
           <TodoItem
             key={index}
-            onClick={makeHandleClick(todo, onTodoClick)}
+            onClick={() => handleItemClick(todo)}
             {...todo}
           />
         ))}
