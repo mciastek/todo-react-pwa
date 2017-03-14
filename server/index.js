@@ -44,10 +44,14 @@ app.post('/notification', function(req, res) {
   const subscription = req.param('subscription');
   const message = req.param('message');
 
-  webpush.sendNotification(
-    subscription,
-    message
-  );
+  setTimeout(() => {
+    webpush.sendNotification(
+      subscription,
+      message
+    );
+  }, 0);
+
+  res.sendStatus(202);
 });
 
 app.listen(port, () => {
