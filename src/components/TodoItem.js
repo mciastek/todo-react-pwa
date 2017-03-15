@@ -8,7 +8,8 @@ const TodoItem = ({ completed, text, onClick }) => {
           onClick={onClick}
           className="toggle"
           type="checkbox"
-          defaultChecked={completed}/>
+          checked={completed}
+        />
         <label>{text}</label>
       </div>
     </li>

@@ -34,7 +34,6 @@ const TodoList = ({ todos, onTodoClick }) => {
 
   return (
     <section className="main">
-      <input className="toggle-all" type="checkbox" />
       <ul className="todo-list">
         {todos.map((todo, index) => (
           <TodoItem
